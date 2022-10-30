@@ -1,0 +1,23 @@
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+public class RichieRich {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int testCases = Integer.parseInt(sc.nextLine());
+        List<Integer> answerList = new LinkedList<>();
+        for(int i=0; i< testCases; i++) {
+            String input[] = sc.nextLine().split(" ");
+            int initialAmount = Integer.parseInt(input[0]);
+            int targetAmount = Integer.parseInt(input[1]);
+            int years = Integer.parseInt(input[2]);
+
+            answerList.add((targetAmount-initialAmount)/years);
+        }
+
+        answerList.stream().forEach(System.out::println);
+    }
+}
