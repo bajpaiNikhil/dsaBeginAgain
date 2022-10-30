@@ -1,0 +1,25 @@
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+public class MAX_DIFF {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int testCases = Integer.parseInt(sc.nextLine());
+        List<Integer> answerList = new LinkedList<>();
+        for(int i=0; i< testCases; i++) {
+            String input[] = sc.nextLine().split(" ");
+            int maxTaste = Integer.parseInt(input[0]);
+            int sumOfTastes = Integer.parseInt(input[1]);
+
+            if (maxTaste>=sumOfTastes)
+                answerList.add(sumOfTastes);
+            else
+                answerList.add(maxTaste-Math.abs(maxTaste-sumOfTastes));
+        }
+
+        answerList.stream().forEach(System.out::println);
+    }
+}
