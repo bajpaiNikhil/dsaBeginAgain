@@ -1,0 +1,19 @@
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
+
+public class HoopJump {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int testCases = Integer.parseInt(sc.nextLine());
+        List<Integer> answerList = new LinkedList<>();
+        for(int i=0; i< testCases; i++) {
+            int hoops = Integer.parseInt(sc.nextLine());
+            answerList.add((hoops+1)/2);
+        }
+
+        answerList.stream().forEach(System.out::println);
+    }
+}
+
