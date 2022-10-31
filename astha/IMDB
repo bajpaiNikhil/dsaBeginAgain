@@ -1,0 +1,32 @@
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class IMDB {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int testCases = Integer.parseInt(scanner.nextLine());
+        List<Integer> answers = new ArrayList<>();
+
+        for(int i = 0; i < testCases; i++) {
+            String[] details = scanner.nextLine().split(" ");
+            int numberOfMovies = Integer.parseInt(details[0]);
+            int spaceOnDisk = Integer.parseInt(details[1]);
+            String[][] movies = new String[numberOfMovies][2];
+
+            for(int j=0; j<numberOfMovies; j++) {
+                movies[j] = scanner.nextLine().split(" ");
+            }
+            int maxRating = 0;
+            for (int k = 0; k<numberOfMovies; k++) {
+                if(maxRating < Integer.parseInt(movies[k][1])
+                        && spaceOnDisk >= Integer.parseInt(movies[k][0])) {
+                    maxRating = Integer.parseInt(movies[k][1]);
+                }
+            }
+            answers.add(maxRating);
+        }
+        answers.stream().forEach(System.out::println);
+    }
+}
