@@ -3,7 +3,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Vaccine {
+public class VDATES {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
