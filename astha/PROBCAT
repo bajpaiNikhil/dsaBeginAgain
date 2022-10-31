@@ -1,0 +1,23 @@
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class PROBCAT {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int testCases = Integer.parseInt(scanner.nextLine());
+        List<String> answers = new ArrayList<>();
+        for(int i =0; i< testCases; i++) {
+            int rating = Integer.parseInt(scanner.nextLine());
+
+            if(rating > 0 && rating < 100)
+                answers.add("Easy");
+            else if (rating >= 100 && rating < 200)
+                answers.add("Medium");
+            else
+                answers.add("Hard");
+        }
+        answers.stream().forEach(System.out::println);
+    }
+}
