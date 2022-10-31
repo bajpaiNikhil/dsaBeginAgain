@@ -1,0 +1,27 @@
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class TWODISH {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int testCases = Integer.parseInt(scanner.nextLine());
+        List<String> answers = new ArrayList<>();
+        for(int i =0; i< testCases; i++) {
+            String[] details = scanner.nextLine().split(" ");
+            int guests = Integer.parseInt(details[0]);
+            int fruits = Integer.parseInt(details[1]);
+            int fish = Integer.parseInt(details[2]);
+            int vegetables = Integer.parseInt(details[3]);
+
+            if((vegetables + fruits) >= guests
+                    && fish >= guests)
+                answers.add("YES");
+            else
+                answers.add("NO");
+
+        }
+        answers.stream().forEach(System.out::println);
+    }
+}
