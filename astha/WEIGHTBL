@@ -1,0 +1,28 @@
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class WEIGHTBL {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int testCases = Integer.parseInt(scanner.nextLine());
+        List<Integer> answers = new ArrayList<>();
+        for(int i =0; i< testCases; i++) {
+            String[] input = scanner.nextLine().split(" ");
+
+            int w1 = Integer.parseInt(input[0]);
+            int w2 = Integer.parseInt(input[1]);
+            int x1 = Integer.parseInt(input[2]);
+            int x2 = Integer.parseInt(input[3]);
+            int m = Integer.parseInt(input[4]);
+
+            if((w2-w1) <= (x2*m) && (w2-w1) >= (x1*m))
+                answers.add(1);
+            else
+                answers.add(0);
+
+        }
+        answers.stream().forEach(System.out::println);
+    }
+}
