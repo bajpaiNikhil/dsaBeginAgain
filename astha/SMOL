@@ -1,0 +1,25 @@
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class SMOL {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int testCases = Integer.parseInt(scanner.nextLine());
+        List<Integer> answers = new ArrayList<>();
+        for(int i =0; i< testCases; i++) {
+            String[] input = scanner.nextLine().split(" ");
+
+            int n = Integer.parseInt(input[0]);
+            int k = Integer.parseInt(input[1]);
+
+            if(n >= k && k >0)
+                n %= k;
+
+
+            answers.add(n);
+        }
+        answers.stream().forEach(System.out::println);
+    }
+}
