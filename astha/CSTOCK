@@ -1,0 +1,28 @@
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class CSTOCK {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int testCases = Integer.parseInt(scanner.nextLine());
+        List<String> answers = new ArrayList<>();
+        for(int i =0; i< testCases; i++) {
+            String[] prices = scanner.nextLine().split(" ");
+            int s = Integer.parseInt(prices[0]);
+            int a = Integer.parseInt(prices[1]);
+            int b = Integer.parseInt(prices[2]);
+            int c = Integer.parseInt(prices[3]);
+
+            s = (int) (s + (s*.01*c));
+
+            if (s >= a && s <= b )
+                answers.add("Yes");
+            else
+                answers.add("No");
+
+        }
+        answers.stream().forEach(System.out::println);
+    }
+}
