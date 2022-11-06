@@ -9,11 +9,3 @@ for t in range(t):
         print("Yes")
     else:
         print("No")
-    # if l[0]==l[1]:
-    #     print("Yes")
-    # else:
-    #     v = math.sqrt((l[0] * l[0]) - 2*l[2]*l[3])
-    #     if v <= l[1]:
-    #         print("Yes")
-    #     else:
-    #         print("No")
