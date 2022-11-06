@@ -1,0 +1,23 @@
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class CFRTEST {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int testCases = Integer.parseInt(scanner.nextLine());
+        List<Integer> answers = new ArrayList<>();
+        for (int i = 0; i < testCases; i++) {
+            int numberOfFriends = Integer.parseInt(scanner.nextLine());
+            String[] number = scanner.nextLine().split(" ");
+            Map<Integer, Integer> days = new HashMap<>();
+            int[] friends = new int[numberOfFriends];
+            for(int j = 0; j< numberOfFriends; j++)
+                friends[j] = Integer.parseInt(number[j]);
+            int friendsSaved = Arrays.stream(friends).boxed().collect(Collectors.toSet()).size();
+
+            answers.add(friendsSaved);
+        }
+        answers.stream().forEach(System.out::println);
+    }
+}
