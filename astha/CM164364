@@ -1,0 +1,27 @@
+
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class CM164364 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int testCases = Integer.parseInt(scanner.nextLine());
+        List<Integer> answers = new ArrayList<>();
+        for(int i =0; i< testCases; i++) {
+            List<String> candiesCount = List.of(scanner.nextLine().split(" "));
+            int sabrina  = Integer.parseInt(candiesCount.get(0));
+            int brother = Integer.parseInt(candiesCount.get(1));
+            candiesCount = List.of(scanner.nextLine().split(" "));
+            Set<Integer> flavours = candiesCount.stream().map(e -> Integer.parseInt(e)).collect(Collectors.toSet());
+
+            if(flavours.size() <= Math.abs(sabrina - brother))
+                answers.add(flavours.size());
+
+            else
+                answers.add(Math.abs(sabrina - brother));
+        }
+        answers.stream().forEach(System.out::println);
+    }
+}
+
