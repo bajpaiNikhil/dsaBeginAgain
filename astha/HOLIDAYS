@@ -1,0 +1,33 @@
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+
+public class HOLIDAYS {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int testCases = Integer.parseInt(scanner.nextLine());
+        List<Integer> answers = new ArrayList<>();
+        for(int i =0; i < testCases; i++) {
+            List<String> input = List.of(scanner.nextLine().split(" "));
+            int days = Integer.parseInt(input.get(0));
+            int money = Integer.parseInt(input.get(1));
+            input = List.of(scanner.nextLine().split(" "));
+            List<Integer> moneyPerDay = input.stream().map(e -> Integer.parseInt(e)).collect(Collectors.toList());
+
+            List<Integer> sortedMoney = moneyPerDay.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+            int moneyEarned = 0;
+            int daysWorked = 0;
+            for (int j = 0; j < sortedMoney.size() && moneyEarned < money; j++) {
+                moneyEarned += sortedMoney.get(j);
+                daysWorked++;
+            }
+
+            answers.add(days - daysWorked);
+
+        }
+        answers.stream().forEach(System.out::println);
+    }
+}
