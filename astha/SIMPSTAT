@@ -1,0 +1,34 @@
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+public class SIMPSTAT {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int testCases = Integer.parseInt(scanner.nextLine());
+        List<Double> answers = new ArrayList<>();
+        for(int i =0; i< testCases; i++) {
+            String[] details = scanner.nextLine().split(" ");
+            int len = Integer.parseInt(details[0]);
+            int k = Integer.parseInt(details[1]);
+            details = scanner.nextLine().split(" ");
+            int j = 0;
+            int[] measurements = new int[len];
+            for (String val : details) {
+                measurements[j++] = Integer.parseInt(val);
+            }
+
+            Arrays.sort(measurements);
+            double avg = 0;
+            for (j = k; j < len - k; j++) {
+                avg += measurements[j];
+            }
+            avg = avg/(len - 2*k);
+            answers.add(avg);
+
+        }
+        answers.stream().forEach(System.out::println);
+    }
+}
