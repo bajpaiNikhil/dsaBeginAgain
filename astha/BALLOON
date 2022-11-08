@@ -1,0 +1,28 @@
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class BALLOON {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int testCases = Integer.parseInt(scanner.nextLine());
+        List<Integer> answers = new ArrayList<>();
+        for(int i =0; i< testCases; i++) {
+            int j = Integer.parseInt(scanner.nextLine());
+            String[] problems = scanner.nextLine().split(" ");
+            int count = 0;
+            j= 0;
+            for (String num : problems) {
+                if(Integer.parseInt(num) > 0 && Integer.parseInt(num) < 8)
+                    count++;
+                j++;
+                if(count == 7)
+                    break;
+            }
+
+            answers.add(j);
+        }
+        answers.stream().forEach(System.out::println);
+    }
+}
